@@ -3,6 +3,7 @@ public class GuessGame {
     Player p2;
     Player p3;
 public void startGame() {
+
     p1 = new Player();
     p2 = new Player();
     p3 = new Player();
@@ -18,16 +19,19 @@ public void startGame() {
     System.out.println("Estou pensando em um número entre 0 e 9...");
 
     while (true){
-        System.err.println("O número a advinhar é "+ targetNumber);
+        System.err.println("O número a advinhar é... ");
 
         p1.guess();
         p2.guess();
         p3.guess();
         
+        
         guessp1 = p1.number;
         System.out.println("O jogador um forneceu o palpite "+ guessp1);
+
         guessp2 = p2.number;
         System.out.println("O jogador dois forneceu o palpite "+ guessp2);
+
         guessp3 = p3.number;
         System.out.println("O jogador três forneceu o palpite "+ guessp3);
     
@@ -45,18 +49,17 @@ public void startGame() {
             System.out.println("Temos um vencedor!");
             System.out.println("O jogador um acertou? " + p1isRight);
             System.out.println("O jogador dois acertou? " + p2isRight);
-            System.out.println("O jogador três acertou? " + p2isRight);
+            System.out.println("O jogador três acertou? " + p3isRight);
+            System.out.println("O número sorteado foi " + targetNumber);
             System.out.println("Fim do jogo.");
 
             break; // fim do jogo, portanto saia do loop
         }else{
             // devemos continuar porque ninguem acertou!
+        	System.out.println("O número a advinhar era o... " + targetNumber);
             System.out.println("Os Jogadores terão que tentar novamente...");
         }
         }
-    
-    
-    
     }
 
 }
