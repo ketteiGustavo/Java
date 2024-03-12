@@ -5,6 +5,7 @@ public class GuessGame {
 
 	public void startGame() {
 
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
 		System.out.print("Quantos jogadores irão jogar? ");
