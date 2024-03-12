@@ -1,73 +1,52 @@
+import java.util.Scanner;
+
 public class GuessGame {
-    Player p1;
-    Player p2;
-    Player p3;
-public void startGame() {
+	Player[] players;
 
-    p1 = new Player();
-    p2 = new Player();
-    p3 = new Player();
+	public void startGame() {
 
-    int guessp1 = 0;
-    int guessp2 = 0;
-    int guessp3 = 0;
-    boolean p1isRight = false;
-    boolean p2isRight = false;
-    boolean p3isRight = false;
+		Scanner sc = new Scanner(System.in);
 
-    int targetNumber = (int) (Math.random() * 10);
-    
+		System.out.print("Quantos jogadores irão jogar? ");
 
-    while (true){
-    	System.out.println("Foi sorteado um número entre 0 e 9...");
-        System.err.println("O número sorteado foi??? ");
+		int numPlayers = sc.nextInt();
+		sc.nextLine();
 
-        p1.guess();
-        p2.guess();
-        p3.guess();
-        
-        
-        guessp1 = p1.number;
-        System.out.println(p1.name + " forneceu o palpite "+ guessp1);
+		players = new Player[numPlayers];
 
-        guessp2 = p2.number;
-        System.out.println(p2.name + " forneceu o palpite "+ guessp2);
+		for (int i = 0; i < numPlayers; i++) {
+			players[i] = new Player();
+			System.out.println("Digite o nome do jogador " + (i + 1) + ": ");
+			players[i].name = sc.nextLine();
+		}
 
-        guessp3 = p3.number;
-        System.out.println(p3.name + " forneceu o palpite "+ guessp3);
-    
-        if (guessp1 == targetNumber){
-            p1isRight = true;
-        }
-        if (guessp2 == targetNumber){
-            p2isRight = true;
-        }
-        if (guessp3 == targetNumber){
-            p3isRight = true;
-        }
+		int targetNumber = (int) (Math.random() * 10);
+		System.out.println("Foi sorteado um número entre 0 e 9...");
+		System.err.println("Quem adivinhará o número???");
 
-        if (p1isRight || p2isRight || p3isRight) {
-            System.out.println("Temos um vencedor!");
-            
-            if (p1.number == targetNumber) {
-            	System.out.println(p1.name + " acertou!");
-            }
-            if (p2.number == targetNumber) {
-            	System.out.println(p2.name + " acertou!");
-            }
-            if (p3.number == targetNumber) {
-            	System.out.println(p3.name + " acertou!");
-            }
-            System.out.println("O número sorteado foi " + targetNumber);
-            System.out.println("Fim do jogo.");
+		while (true) {
+			
+			boolean acertou = false;
 
-            break; // fim do jogo, portanto saia do loop
-        }else{
-            // devemos continuar porque ninguem acertou!
-        	System.out.println("O número a advinhar era o... " + targetNumber);
-            System.out.println("Ninguém acertou! Os jogadores terão que tentar novamente...");
-        }
-        }
-    }
+			System.err.println("O número sorteado foi??? " + targetNumber);
+
+			for (Player player : players) {
+				player.guess();
+
+				if (player.number == targetNumber) {
+					acertou = true;
+					System.out.println("O número sorteado foi " + targetNumber);
+					System.out.println("Temos um vencedor! Parabéns, " + player.name + "!Acertou o número sorteado!");
+					System.out.println("Fim do jogo.");
+					return; // fim do jogo, portanto saia do loop
+				}
+			}
+			
+			if(!acertou) {
+				System.out.println("Ninguém acertou! Os jogadores terão que tentar novamente...");
+			}
+
+		}
+	}
 
 }
