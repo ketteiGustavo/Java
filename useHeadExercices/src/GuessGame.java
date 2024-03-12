@@ -16,10 +16,11 @@ public void startGame() {
     boolean p3isRight = false;
 
     int targetNumber = (int) (Math.random() * 10);
-    System.out.println("Estou pensando em um número entre 0 e 9...");
+    
 
     while (true){
-        System.err.println("O número a advinhar é... ");
+    	System.out.println("Foi sorteado um número entre 0 e 9...");
+        System.err.println("O número sorteado foi??? ");
 
         p1.guess();
         p2.guess();
@@ -27,13 +28,13 @@ public void startGame() {
         
         
         guessp1 = p1.number;
-        System.out.println("O jogador um forneceu o palpite "+ guessp1);
+        System.out.println(p1.name + " forneceu o palpite "+ guessp1);
 
         guessp2 = p2.number;
-        System.out.println("O jogador dois forneceu o palpite "+ guessp2);
+        System.out.println(p2.name + " forneceu o palpite "+ guessp2);
 
         guessp3 = p3.number;
-        System.out.println("O jogador três forneceu o palpite "+ guessp3);
+        System.out.println(p3.name + " forneceu o palpite "+ guessp3);
     
         if (guessp1 == targetNumber){
             p1isRight = true;
@@ -47,9 +48,16 @@ public void startGame() {
 
         if (p1isRight || p2isRight || p3isRight) {
             System.out.println("Temos um vencedor!");
-            System.out.println("O jogador um acertou? " + p1isRight);
-            System.out.println("O jogador dois acertou? " + p2isRight);
-            System.out.println("O jogador três acertou? " + p3isRight);
+            
+            if (p1.number == targetNumber) {
+            	System.out.println(p1.name + "acertou!");
+            }
+            if (p2.number == targetNumber) {
+            	System.out.println(p2.name + "acertou!");
+            }
+            if (p3.number == targetNumber) {
+            	System.out.println(p3.name + "acertou!");
+            }
             System.out.println("O número sorteado foi " + targetNumber);
             System.out.println("Fim do jogo.");
 
@@ -57,7 +65,7 @@ public void startGame() {
         }else{
             // devemos continuar porque ninguem acertou!
         	System.out.println("O número a advinhar era o... " + targetNumber);
-            System.out.println("Os Jogadores terão que tentar novamente...");
+            System.out.println("Ninguém acertou! Os jogadores terão que tentar novamente...");
         }
         }
     }
