@@ -50,13 +50,13 @@ public void startGame() {
             System.out.println("Temos um vencedor!");
             
             if (p1.number == targetNumber) {
-            	System.out.println(p1.name + "acertou!");
+            	System.out.println(p1.name + " acertou!");
             }
             if (p2.number == targetNumber) {
-            	System.out.println(p2.name + "acertou!");
+            	System.out.println(p2.name + " acertou!");
             }
             if (p3.number == targetNumber) {
-            	System.out.println(p3.name + "acertou!");
+            	System.out.println(p3.name + " acertou!");
             }
             System.out.println("O número sorteado foi " + targetNumber);
             System.out.println("Fim do jogo.");
