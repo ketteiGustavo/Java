@@ -6,8 +6,6 @@ public class Player {
 
 	public void guess() {
 		
-		
-
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.println(name + "! Escolha um número: ");
