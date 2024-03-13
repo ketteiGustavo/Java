@@ -11,7 +11,7 @@ public class Player {
 		System.out.println(name + "! Escolha um número: ");
 		number = sc.nextInt();
 		System.out.println(name+ " escolheu o " + number);
-
+		
 	}
 
 }

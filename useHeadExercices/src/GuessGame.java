@@ -15,6 +15,9 @@ public class GuessGame {
 
 		players = new Player[numPlayers];
 
+		
+
+
 		for (int i = 0; i < numPlayers; i++) {
 			players[i] = new Player();
 			System.out.println("Digite o nome do jogador " + (i + 1) + ": ");
@@ -29,7 +32,7 @@ public class GuessGame {
 			
 			boolean acertou = false;
 
-			System.err.println("O número sorteado foi??? " + targetNumber);
+			System.err.println("O número sorteado foi???");
 
 			for (Player player : players) {
 				player.guess();
@@ -48,6 +51,7 @@ public class GuessGame {
 			}
 
 		}
+		
 	}
 
 }
